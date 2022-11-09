@@ -25,10 +25,11 @@ int _printf(const char *format, ...)
 			{
 				cont += f(ap);
 			}
-			i++;
 		}
-		cont += _putchar(format[i]);
-
+		else 
+		{
+			cont += _putchar(format[i]);
+		}
 	}
 	va_end(ap);
 	return (cont);
