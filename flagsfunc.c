@@ -40,8 +40,7 @@ int print_char(va_list ap)
 {
 	int c = va_arg(ap, int);
 
-	write(1, &c, 1);
-	return (0);
+	return (write(1, &c, 1));
 }
 
 

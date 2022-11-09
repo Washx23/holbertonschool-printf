@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			f = printflags(&format[i]);
+			f = printflags(format[i]);
 			if (f)
 			{
 				cont += f(ap);

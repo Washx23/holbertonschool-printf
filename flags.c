@@ -6,7 +6,7 @@
  * Return: always
  */
 
-int (*printflags(const char *format))(va_list)
+int (*printflags(const char format))(va_list)
 {
 	perc func[] = {
 		{'c', print_char},
@@ -14,16 +14,13 @@ int (*printflags(const char *format))(va_list)
 		{'%', print_perc},
 		{'\0', NULL}
 	};
-	int i, j;
+	int j;
 
-	for (i = 0; format[i]; i++)
+	for (j = 0; j < 5; j++)
 	{
-		for (j = 0; j < 5; j++)
+		if (format == func[j].c)
 		{
-			if (format[i] == func[j].c)
-			{
-				return (func[j].f);
-			}
+			return (func[j].f);
 		}
 	}
 	return (0);

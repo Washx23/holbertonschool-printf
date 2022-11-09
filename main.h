@@ -7,7 +7,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int (*printflags(const char *format))(va_list);
+int (*printflags(const char format))(va_list);
 int print_str(va_list ap);
 int print_perc(va_list ap);
 int print_char(va_list ap);
