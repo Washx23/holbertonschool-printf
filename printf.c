@@ -31,5 +31,5 @@ int _printf(const char *format, ...)
 
 	}
 	va_end(ap);
-	return (cont + 1);
+	return (cont);
 }
