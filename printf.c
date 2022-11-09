@@ -1,15 +1,17 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - replacemet function of the original printf
  * @format: parameters
- * Return: 0
+ * Return: cont
  */
 int _printf(const char *format, ...)
 {
 	int (*f)(va_list ap);
 	va_list ap;
-	int i;
+	int i = 0;
+	int cont = 0;
 
 	va_start(ap, format);
 
@@ -21,13 +23,13 @@ int _printf(const char *format, ...)
 			f = printflags(&format[i]);
 			if (f)
 			{
-				f(ap);
-				i++;
+				cont += f(ap);
 			}
+			i++;
 		}
-		_putchar(format[i]);
+		cont += _putchar(format[i]);
 
 	}
 	va_end(ap);
-	return (0);
+	return (cont + 1);
 }
