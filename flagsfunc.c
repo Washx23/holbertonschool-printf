@@ -1,5 +1,6 @@
 #include "main.h"
-
+#include <stdio.h>
+#include <string.h>
 /**
  * print_str - function thats print string
  * @ap: parameters
@@ -8,13 +9,21 @@
 int print_str(va_list ap)
 {
 	char *str = va_arg(ap, char *);
+	int i = 0;
 
-	while (*str)
+	if (str)
+	{
+	for (i = 0; *str; i++)
 	{
 		_putchar(*str);
 		str = str + 1;
 	}
-	return (0);
+	}
+	else
+	{
+		return (write(1, "(null)", 6));
+	}
+	return (i);
 }
 
 /**
@@ -22,13 +31,9 @@ int print_str(va_list ap)
  * @ap: parameters
  * Return: 0
  */
-int print_perc(va_list ap)
+int print_perc(__attribute__((unused))va_list ap)
 {
-	int c = va_arg(ap, int);
-
-	c = '%';
-
-	return (_putchar(c));
+	return (_putchar('%'));
 }
 
 /**
@@ -42,5 +47,3 @@ int print_char(va_list ap)
 
 	return (write(1, &c, 1));
 }
-
-

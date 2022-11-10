@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
+	if (format)
+	{
 	for (i = 0; format[i]; i++)
 	{
 		if (format[i] == '%')
@@ -26,11 +28,14 @@ int _printf(const char *format, ...)
 				cont += f(ap);
 			}
 		}
-		else 
+		else
 		{
 			cont += _putchar(format[i]);
 		}
 	}
+	}
+	else
+		cont = cont - 1;
 	va_end(ap);
 	return (cont);
 }
