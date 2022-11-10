@@ -21,12 +21,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] != '\0')
+			{
 			i++;
 			f = printflags(format[i]);
 			if (f)
 			{
 				cont += f(ap);
 			}
+			}
+			else
+				return (-1);
 		}
 		else
 		{
