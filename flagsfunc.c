@@ -53,20 +53,13 @@ int print_char(va_list ap)
  *
  * Return: 0
  */
-int print_int(int n)
+int print_int(unsigned int n)
 {
 	int cont = 0;
 
-	if (n < 0)
-	{
-		cont += _putchar('-');
-	n = n * (-1);
-	}
 	if (n > 9)
 		cont += print_int(n / 10);
-	{
 	cont += _putchar('0' + (n % 10));
-	}
 	return (cont);
 }
 /**
@@ -77,6 +70,10 @@ int print_int(int n)
 int val_n(va_list ap)
 {
 	int n = va_arg(ap, int);
+	size_t num, cont = 0;
 
-	return (print_int(n));
+	num = n < 0 ? -n : n;
+	cont = n < 0 ? _putchar('-') : 0;
+
+	return (cont + print_int(num));
 }
