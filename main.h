@@ -11,6 +11,8 @@ int (*printflags(const char format))(va_list);
 int print_str(va_list ap);
 int print_perc(va_list ap);
 int print_char(va_list ap);
+int val_n(va_list);
+int print_int(int);
 /**
  * struct percentage - struct
  * @c: characters

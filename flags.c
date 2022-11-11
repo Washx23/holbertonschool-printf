@@ -11,6 +11,8 @@ int (*printflags(const char format))(va_list)
 	perc func[] = {
 		{'c', print_char},
 		{'s', print_str},
+		{'i', val_n},
+		{'d', val_n},
 		{'%', print_perc},
 		{'\0', NULL}
 	};
@@ -18,7 +20,7 @@ int (*printflags(const char format))(va_list)
 
 	if (format)
 	{
-	for (j = 0; j < 5; j++)
+	for (j = 0; j < 7; j++)
 	{
 		if (format == func[j].c)
 			return (func[j].f);
